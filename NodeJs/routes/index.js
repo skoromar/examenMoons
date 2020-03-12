@@ -58,9 +58,14 @@ function calculate() {
 				return "error una combinación no coincide con el tamaño solicitado";
 			}else{
 				var obj_result= this.validCases(sizeEnters, siseCase,arrLines,arrayInfo);
-				var html = "";
+				var html = [];
 				for(var x in obj_result){
-					html += '<p>Caso #'+(parseInt(x)+1)+': '+obj_result[x]+'</p>'
+
+					html.push({
+						name:'Caso #'+(parseInt(x)+1),
+						number: obj_result[x]
+					});
+					
 				}
 				return html;
 			}
@@ -180,16 +185,16 @@ router.post('/calculate', function(req, res, next) {
     console.log(nstr);
     var html = calculate().validlinesLenght(nstr);
     console.log(html);
-  res.render('index', { title: 'Express' });
+  res.render('index', { result: html });
 
 });
 
 router.get('/calculate', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Express' ,result: []});
 });
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Express',result: [] });
 });
 
 module.exports = router;

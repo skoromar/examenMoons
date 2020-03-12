@@ -16,3 +16,8 @@ html
             label(for='name') Entrada:
             textarea(name="description", cols="40", rows="5")
           button.btn.btn-primary(type='submit') Calcular
+
+          ul#slides.swiper-wrapper
+           each key in result
+             li.swiper-slide
+               p=key.name+' :'+key.number
