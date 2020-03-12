@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prueba Omar</title>
+	<meta charset="UTF-8">
+	<script src="js/jquery.min.js"></script>
+	<script src='js/dictionary.js'></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+
+
+  <div class="form-group">
+    <label for="texareainfo">Example textarea</label>
+    <textarea class="form-control" id="texareainfo" rows="3" ></textarea>
+  </div>
+
+  <br>
+  <button type="submit" id="btnActivate" class="btn btn-primary col-md-3">Procesar Información</button>
+  <hr>
+  
+  <div class="form-group">
+  	<div id="result">
+  		
+  	</div>
+
+  </div>
+
+<script>
+ 	$("#btnActivate").click(function(){
+
+    var info = $("#texareainfo").val();
+
+    var nstr = info.split(/\n/);//all information text area in array
+    
+    var html = calculate().validlinesLenght(nstr);
+    $("#result").html(html);
+ 	
+ 	})
+
+
+</script>
+
+</body>
+</html>
